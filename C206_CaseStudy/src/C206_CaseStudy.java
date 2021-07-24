@@ -2,7 +2,8 @@ public class C206_CaseStudy {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		user user = new user("user", "test", "student", "test@gmail.com", "test123");
+		user user = new user("user", "test", "student", "test@gmail.com", "test123"); // username is user, password is
+																						// test123
 		boolean tocontinue = true;
 		while (tocontinue) {
 			C206_CaseStudy.loginMenu();
@@ -22,14 +23,22 @@ public class C206_CaseStudy {
 				String uPassword = Helper.readString("Enter password > ");
 				boolean isUser = C206_CaseStudy.userLogin(user, uName, uPassword);
 				if (isUser == false) {
+
 					System.out.println("Either your username or password was incorrect. Please try again!");
+					break;
 
 				}
+
 				while (isUser) {
 					C206_CaseStudy.MainMenu();
 					int choice = Helper.readInt("Enter choice > ");
 					switch (choice) {
 					case 1:
+						break;
+					case 4:
+						isUser = false;
+						System.out.println("Goodbye!");
+						break;
 					}
 
 				}
@@ -68,7 +77,6 @@ public class C206_CaseStudy {
 
 	public static boolean userLogin(user user, String uName, String uPassword) {
 
-		// Complete code here
 		if (user.getUserid().equals(uName) && user.getPassword().equals(uPassword)) {
 			return true;
 		} else {
@@ -77,6 +85,7 @@ public class C206_CaseStudy {
 
 	}
 }
+
 //Welcome! 
 //A
 //Are you a new student?
