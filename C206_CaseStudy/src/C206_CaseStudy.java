@@ -2,11 +2,77 @@ public class C206_CaseStudy {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		while (true) {
-			String options = Helper.readString("\nCareer Planning Application\n \nAre you a member? (Y/N)");
-			if (options == "N") {
+		user user = new user("user", "test", "student", "test@gmail.com", "test123");
+		boolean tocontinue = true;
+		while (tocontinue) {
+			C206_CaseStudy.loginMenu();
+			int options = Helper.readInt("Enter choice > ");
+			switch (options) {
+			case 1:
+				System.out.println("Career Planning Application - REGISTRATION");
+				user updateduser = user;
+				String rMail = Helper.readString("Enter email > ");
+				String rName = Helper.readString("Enter new username > ");
+				String rPassword = Helper.readString("Enter new password > ");
+				updateduser.setUsername(new String(rName));
+				updateduser.setPassword(new String(rPassword));
+				break;
+			case 2:
+				String uName = Helper.readString("Enter username > ");
+				String uPassword = Helper.readString("Enter password > ");
+				boolean isUser = C206_CaseStudy.userLogin(user, uName, uPassword);
+				if (isUser == false) {
+					System.out.println("Either your username or password was incorrect. Please try again!");
+
+				}
+				while (isUser) {
+					C206_CaseStudy.MainMenu();
+					int choice = Helper.readInt("Enter choice > ");
+					switch (choice) {
+					case 1:
+					}
+
+				}
 
 			}
+		}
+	}
+
+	public static user register(user user) {
+		user updateduser = user;
+		String rName = Helper.readString("Enter username > ");
+		String rPassword = Helper.readString("Enter password > ");
+		updateduser.setUsername(new String(rName));
+		updateduser.setPassword(new String(rPassword));
+
+		return updateduser;
+	}
+
+	public static void loginMenu() {
+		System.out.println("1. Register");
+		System.out.println("2. Login");
+	}
+
+	public static void MainMenu() {
+
+		Helper.line(20, "-");
+		System.out.println("Main Menu");
+		Helper.line(20, "-");
+		System.out.println("Welcome! \nWhat would you like to do?");
+		System.out.println("1. Add or change my prerequisites");
+		System.out.println("2. View my subjects or add new ones");
+		System.out.println("3. Search for careers");
+		System.out.println("4. Log out");
+
+	}
+
+	public static boolean userLogin(user user, String uName, String uPassword) {
+
+		// Complete code here
+		if (user.getUserid().equals(uName) && user.getPassword().equals(uPassword)) {
+			return true;
+		} else {
+			return false;
 		}
 
 	}
@@ -20,7 +86,7 @@ public class C206_CaseStudy {
 //Enter choice > 2 // take user to B.2
 //
 ////B.1
-//Great, let me know about you so you can login again!
+//Great, let's register
 // name > Eng Lim
 //Email > englim@gmail.com
 //Password > XXX123
