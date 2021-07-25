@@ -1,8 +1,25 @@
+import java.util.ArrayList;
+
 public class C206_CaseStudy {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		user user = new user("user", "test", "student", "test@gmail.com", "test123"); // username is user, password is
+		subject subject1 = new subject(1, "English");
+		subject subject2 = new subject(2, "Mathematics");
+		subject subject3 = new subject(3, "Pure Biology");
+		subject subject4 = new subject(4, "Pure Chemistry");
+		subject subject5 = new subject(5, "Pure Physics");
+		subject subject6 = new subject(6, "Mothertongue");
+		ArrayList<subject> subjectlist = new ArrayList<subject>();
+		subjectlist.add(subject1);
+		subjectlist.add(subject2);
+		subjectlist.add(subject3);
+		subjectlist.add(subject4);
+		subjectlist.add(subject5);
+		subjectlist.add(subject6);
+
+		user user = new user("user", "test", "student", "test@gmail.com", "test123"); // username is user,
+																						// password is
 																						// test123
 		boolean tocontinue = true;
 		while (tocontinue) {
@@ -35,7 +52,59 @@ public class C206_CaseStudy {
 					switch (choice) {
 					case 1:
 						break;
+					case 2:
+						C206_CaseStudy.SMenu();
+						int subjectOptions = Helper.readInt("Enter choice > ");
+						switch (subjectOptions) {
+						case 1:
+							int subjectId = Helper.readInt("Enter subject ID > ");
+							String subjectName = Helper.readString("Enter the subject you want to add > ");
+							subject newsubject = new subject(subjectId, subjectName);
+							boolean result = C206_CaseStudy.addSubject(subjectlist, newsubject);
+							if (result == true) {
+								System.out.println("Subject added!");
+							} else {
+								System.out.println("Subject not added!");
+							}
+							break;
+						case 2:
+							String allsubjects = C206_CaseStudy.subjectListToString(subjectlist);
+							System.out.println(allsubjects);
+							break;
+						case 3:
+							String deleteSubjectName = Helper.readString("Enter subject you would like to delete > ");
+							String subjectdetails = C206_CaseStudy.getSubject(subjectlist, deleteSubjectName);
+							if (!subjectdetails.isEmpty()) {
+								System.out.println(subjectdetails);
+								char toDelete = Helper.readChar("Do you wish to delete this subject?(y/n) > ");
+								switch (toDelete) {
+								case 'y':
+									boolean deleted = C206_CaseStudy.removeSubject(subjectlist, deleteSubjectName);
+									if (deleted == true) {
+										System.out.println(String.format("Subject %s was deleted successfully.",
+												deleteSubjectName));
+									} else {
+										System.out.println("Something went wrong, subject was not deleted.");
+									}
+								case 'n':
+									break;
+								}
+
+							} else {
+								System.out.println("That subject does not exist!");
+							}
+							break;
+						case 4:
+							break;
+						}
+						break;
+					case 3:
+						break;
 					case 4:
+						break;
+					case 5:
+						break;
+					case 6:
 						isUser = false;
 						System.out.println("Goodbye!");
 						break;
@@ -68,10 +137,21 @@ public class C206_CaseStudy {
 		System.out.println("Main Menu");
 		Helper.line(20, "-");
 		System.out.println("Welcome! \nWhat would you like to do?");
-		System.out.println("1. Add or change my prerequisites");
+		System.out.println("1. View pre-requisite information");
 		System.out.println("2. View my subjects or add new ones");
-		System.out.println("3. Search for careers");
-		System.out.println("4. Log out");
+		System.out.println("3. View pathways");
+		System.out.println("4. Account Settings");
+		System.out.println("5. Search");
+		System.out.println("6. Log out");
+
+	}
+
+	public static void SMenu() {
+
+		System.out.println("1. Add subject");
+		System.out.println("2. View my subjects");
+		System.out.println("3. Delete subject");
+		System.out.println("4. Return back to main menu");
 
 	}
 
@@ -84,6 +164,58 @@ public class C206_CaseStudy {
 		}
 
 	}
+
+	public static boolean addSubject(ArrayList<subject> subjectlist, subject subject) {
+
+		// Complete code here
+		if (subject.getSubjectName() != null) {
+			if (!subject.getSubjectName().isEmpty()) {
+				subjectlist.add(subject);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static String subjectListToString(ArrayList<subject> subjectlist) {
+
+		String output = "";
+		output += String.format("%-10s\n", "LIST OF SUBJECTS");
+		for (int i = 0; i < subjectlist.size(); i++) {
+			output += String.format("%-10s\n", subjectlist.get(i).getSubjectName());
+		}
+		return output;
+	}
+
+	public static boolean removeSubject(ArrayList<subject> subjectlist, String subjectname) {
+
+		for (int i = 0; i < subjectlist.size(); i++) {
+			if (subjectlist.get(i).getSubjectName() == subjectname) {
+				subjectlist.remove(i);
+				return true;
+			}
+
+		}
+		return false;
+	}
+
+	public static String getSubject(ArrayList<subject> subjectlist, String subjectnames) {
+
+		String output = "";
+
+		for (int i = 0; i < subjectlist.size(); i++) {
+			subject s = subjectlist.get(i);
+
+			if (s.getSubjectName() == subjectnames) {
+				output += String.format("%-10s\n", "Subject");
+				output += String.format("%-10s\n", s.getSubjectName());
+				break;
+			}
+		}
+
+		return output;
+	}
+
 }
 
 //Welcome! 
