@@ -94,7 +94,7 @@ public class C206_CaseStudy {
 								System.out.println("That subject does not exist!");
 							}
 							break;
-						case 4:
+						case 5:
 							break;
 						}
 						break;
@@ -151,7 +151,8 @@ public class C206_CaseStudy {
 		System.out.println("1. Add subject");
 		System.out.println("2. View my subjects");
 		System.out.println("3. Delete subject");
-		System.out.println("4. Return back to main menu");
+		System.out.println("4. Delete subject");
+		System.out.println("5. Return back to main menu");
 
 	}
 
