@@ -167,7 +167,6 @@ public class C206_CaseStudy {
 
 	public static boolean addSubject(ArrayList<subject> subjectlist, subject subject) {
 
-		// Complete code here
 		if (subject.getSubjectName() != null) {
 			if (!subject.getSubjectName().isEmpty()) {
 				subjectlist.add(subject);
