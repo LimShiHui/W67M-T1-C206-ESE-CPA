@@ -1,11 +1,11 @@
 public class user {
-	private String user_id;
+	private int user_id;
 	private String name;
 	private String role;
 	private String email;
 	private String password;
 
-	public user(String user_id, String name, String role, String email, String password) {
+	public user(int user_id, String name, String role, String email, String password) {
 		this.user_id = user_id;
 		this.name = name;
 		this.role = role;
@@ -17,7 +17,7 @@ public class user {
 		return name;
 	}
 
-	public String getUserid() {
+	public int getUserid() {
 		return user_id;
 	}
 
@@ -33,11 +33,12 @@ public class user {
 		return role;
 	}
 
-	public void setUsername(String user_id) {
-		this.user_id = user_id;
-	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void showAlluser() {
+		System.out.println("ID: "+user_id);
+		System.out.println("Name: "+name);
+		System.out.println("Role: "+role);
+		System.out.println("Email: "+email);
+		System.out.println("Password: "+password);
 	}
 }
