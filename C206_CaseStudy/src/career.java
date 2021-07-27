@@ -14,8 +14,16 @@ public class career {
 		return career_id;
 	}
 
+	public void setCareer_id(int career_id) {
+		this.career_id = career_id;
+	}
+
 	public String getCareer_name() {
 		return career_name;
+	}
+
+	public void setCareer_name(String career_name) {
+		this.career_name = career_name;
 	}
 
 }
