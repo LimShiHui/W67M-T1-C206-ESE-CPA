@@ -40,7 +40,18 @@ public class CPA_Main {
 			}
 			
 			else if (userOption == 3) { // add new career information
+				int careerId = Helper.readInt("Enter ID of career: ");
+				String careerName = Helper.readString("Enter the name of career: ");
+				String careerInfo = Helper.readString("Enter the information of the career: ");
 				
+				
+				
+				if (careerId != 0 && !careerName.isEmpty() && !careerInfo.isEmpty()) {
+					career newCareer = new career(careerId, careerName, careerInfo);
+					System.out.println("New career has been added successfully");
+				} else {
+					System.out.println("Unsuccessful adding. All input is required. Please try again");
+				}
 			} 
 			
 			else if (userOption == 4) { // add new subject
@@ -88,6 +99,7 @@ public class CPA_Main {
 		System.out.println("CARERR PLANNING APPLICATION - MAIN");
 		Helper.line(30, "-");
 
+		// can add on if needed 
 		System.out.println("1. Add new user account");
 		System.out.println("2. Add new academic cluster");
 		System.out.println("3. Add new career information");
