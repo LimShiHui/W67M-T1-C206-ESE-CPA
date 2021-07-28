@@ -35,5 +35,11 @@ public class career {
 	public void setCareer_info(String career_info) {
 		this.career_info = career_info;
 	}
+	
+	public void showAllCareer() {
+		System.out.println("ID: " + career_id);
+		System.out.println("Name: " + career_name);
+		System.out.println("Informatio: " + career_info);
+	}
 
 }
