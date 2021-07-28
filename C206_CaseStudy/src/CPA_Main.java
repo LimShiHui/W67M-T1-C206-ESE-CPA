@@ -15,7 +15,7 @@ public class CPA_Main {
 			Helper.line(30, "-");
 
 			
-			if (userOption==1) {
+			if (userOption==1) { //add new user account
 				int userID=Helper.readInt("Enter your id: ");
 				String userName=Helper.readString("Enter user name: ");
 				String userRole=Helper.readString("Enter user role: ");
@@ -34,7 +34,28 @@ public class CPA_Main {
 					System.out.println("You did not fill up all required field, add acount failed.");	
 				}
 			}
-			else if(userOption==7) {
+			
+			else if (userOption == 2) { // add new academic cluster 
+				
+			}
+			
+			else if (userOption == 3) { // add new career information
+				
+			}
+			
+			else if (userOption == 4) { // add new subject
+				
+			}
+			
+			else if (userOption == 5) { // add new pathway
+				
+			}
+			
+			else if (userOption == 6) { // add new career information
+				
+			}
+			
+			else if(userOption==7) { // show all user
 				if (userList.size()>0) {
 					for(int i=0;i<userList.size();i++) {
 						System.out.println("User no. "+i);
