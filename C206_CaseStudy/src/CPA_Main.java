@@ -41,7 +41,7 @@ public class CPA_Main {
 			
 			else if (userOption == 3) { // add new career information
 				
-			}
+			} 
 			
 			else if (userOption == 4) { // add new subject
 				
