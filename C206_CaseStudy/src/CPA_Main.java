@@ -50,7 +50,7 @@ public class CPA_Main {
 					career newCareer = new career(careerId, careerName, careerInfo);
 					System.out.println("New career has been added successfully");
 				} else {
-					System.out.println("Unsuccessful adding. All input is required. Please try again");
+					System.out.println();
 				}
 			} 
 			
